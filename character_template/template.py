@@ -95,8 +95,8 @@ def get_yourbaff(character_class, classes_base):
     print(f"Повышен аттрибутЖ '{bonus_attrib}'")
 
 
-def get_skills(character_class, classes_skills):
-    skills = random.sample(classes_skills[character_class], 3)
+def get_skills(character_class, classes_base):
+    skills = random.sample(classes_base[character_class]['skills'], 3)
     first_skill, second_skill, third_skill = skills
     return first_skill, second_skill, third_skill
 
@@ -113,7 +113,7 @@ def main():
      stats = get_classbaff(character_class, classes_base, stats)
      get_yourbaff(character_class, classes_base)
      image = classes_base[character_class]['image']
-     first_skill, second_skill, third_skill = get_skills(character_class, classes_skills)
+     first_skill, second_skill, third_skill = get_skills(character_class, classes_base)
      rendered_page = template.render(
         name=name, 
         race=character_race,
