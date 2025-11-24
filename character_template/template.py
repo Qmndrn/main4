@@ -114,6 +114,7 @@ def main():
      get_yourbaff(character_class, classes_base)
      image = classes_base[character_class]['image']
      first_skill, second_skill, third_skill = get_skills(character_class, classes_base)
+     print(f"Первый скилл: {first_skill}, Второй: {second_skill}, Третий: {third_skill}")
      rendered_page = template.render(
         name=name, 
         race=character_race,
