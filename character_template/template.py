@@ -92,7 +92,7 @@ def get_classbaff(character_class, classes_base, stats):
 
 def get_yourbaff(character_class, classes_base):
     bonus_attrib = list(classes_base[character_class]['stats'])[0]
-    print(f"Повышен аттрибутЖ '{bonus_attrib}'")
+    print(f"Повышен аттрибутЖ {bonus_attrib}")
 
 
 def get_skills(character_class, classes_base):
