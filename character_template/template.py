@@ -4,44 +4,38 @@ import random
 
 characters_list = ['Орк', 'Эльф', 'Человек','Гном', 'Гоблин', 'Драконид']
 character_classes = ['Лучник', 'Ассасин', 'Бард', 'Воин', 'Маг']
-classes_skills = {
- 'Маг': ['Стрела ледяного огня', 'Снятие проклятия', 'Огненный взрыв', 'Обледенение', 'Ледяное копье', 'Конус холода', 'Прилив сил', 'Морозный доспех'],
- 'Воин': ['Блок щитом', 'Казнь', 'Рывок', 'Боевой крик', 'Вихрь', 'Парирование', 'Мощный удар', 'Глубокие раны'],
- 'Лучник': ['Верный выстрел', 'Чародейский выстрел', 'Стенающая стрела', 'Стрелы ветра', 'Призыв питомца', 'Глаз зверя', 'Осветительная ракета', 'Приручение животного'],
- 'Ассасин': ['Отравление', 'Взлом замка', 'Подлый трюк', 'Исчезновение', 'Ложный выпад', 'Внезапный удар', 'Ошеломление', 'Спринт'],
- 'Бард': ['Аккорды ветра', 'Аккорды воды', 'Исцеление', 'Соната жизни', 'Пауза', 'Плач сирен', 'Песнь ветра', 'Реквием']
-}
+
 classes_base = {
     'Маг': {
-        'skills': classes_skills['Маг'],
+        'skills': ['Стрела ледяного огня', 'Снятие проклятия', 'Огненный взрыв', 'Обледенение', 'Ледяное копье', 'Конус холода', 'Прилив сил', 'Морозный доспех'],
         'stats': {
             'intelligence': 15,
         },
         'image': '../character_template/images/wizard.png'
     },
     'Воин': {
-        'skills': classes_skills['Воин'],
+        'skills': ['Блок щитом', 'Казнь', 'Рывок', 'Боевой крик', 'Вихрь', 'Парирование', 'Мощный удар', 'Глубокие раны'],
         'stats': {
             'strength': 15,
         },
         'image': '../character_template/images/warrior.png'
     },
     'Лучник': {
-        'skills': classes_skills['Лучник'],
+        'skills': ['Верный выстрел', 'Чародейский выстрел', 'Стенающая стрела', 'Стрелы ветра', 'Призыв питомца', 'Глаз зверя', 'Осветительная ракета', 'Приручение животного'],
         'stats': {
             'agility': 15,
         },
         'image': '../character_template/images/archer.png'
     },
     'Ассасин': {
-        'skills': classes_skills['Ассасин'],
+        'skills': ['Отравление', 'Взлом замка', 'Подлый трюк', 'Исчезновение', 'Ложный выпад', 'Внезапный удар', 'Ошеломление', 'Спринт'],
         'stats': {
             'luck': 15,
         },
         'image': '../character_template/images/assasin.png'
     },
     'Бард': {
-        'skills': classes_skills['Бард'],
+        'skills': ['Аккорды ветра', 'Аккорды воды', 'Исцеление', 'Соната жизни', 'Пауза', 'Плач сирен', 'Песнь ветра', 'Реквием'],
         'stats': {
             'temper': 15
         },
@@ -90,11 +84,6 @@ def get_classbaff(character_class, classes_base, stats):
     return stats
 
 
-def get_yourbaff(character_class, classes_base):
-    bonus_attrib = list(classes_base[character_class]['stats'])[0]
-    print(f"Повышен аттрибутЖ {bonus_attrib}")
-
-
 def get_skills(character_class, classes_base):
     skills = random.sample(classes_base[character_class]['skills'], 3)
     first_skill, second_skill, third_skill = skills
@@ -111,10 +100,8 @@ def main():
      print(f"Вы выбрали: {character_class}")
      stats = get_stats()
      stats = get_classbaff(character_class, classes_base, stats)
-     get_yourbaff(character_class, classes_base)
      image = classes_base[character_class]['image']
      first_skill, second_skill, third_skill = get_skills(character_class, classes_base)
-     print(f"Первый скилл: {first_skill}, Второй: {second_skill}, Третий: {third_skill}")
      rendered_page = template.render(
         name=name, 
         race=character_race,
