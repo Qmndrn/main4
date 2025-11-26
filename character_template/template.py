@@ -91,7 +91,6 @@ def main():
         }
 
         stats.update(classes_base[character_class]['stats'])
-        image = classes_base[character_class]['image']
 
         first_skill, second_skill, third_skill = random.sample(
             classes_base[character_class]['skills'], 3
@@ -106,7 +105,7 @@ def main():
             intelligence=stats['intelligence'],
             luck=stats['luck'],
             temper=stats['temper'],
-            image=image,
+            image=classes_base[character_class]['image'],
             first_skill=first_skill,
             second_skill=second_skill,
             third_skill=third_skill
