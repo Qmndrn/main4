@@ -59,14 +59,14 @@ template = env.get_template('template.html')
 
 
 def get_race():
-    for i, race in enumerate(characters_list, 1):
+    for racenumber, race in enumerate(characters_list, 1):
         print(f"{i}. {race}")
     choice = int(input("Выберите расу персонажа: "))
     return characters_list[choice - 1]
 
 
 def get_class():
-    for i, cls in enumerate(character_classes, 1):
+    for classnumber, cls in enumerate(character_classes, 1):
         print(f"{i}. {cls}")
     choice = int(input("Выберите класс персонажа: "))
     return character_classes[choice - 1]
@@ -74,7 +74,7 @@ def get_class():
 
 def main():
     char_num = int(input("Сколько персонажей создать?(числом): "))
-    for i in range(char_num):
+    for numofchars in range(char_num):
         name = input("Введите имя персонажа: ").strip()
         character_race = get_race()
         print(f"Вы выбрали: {character_race}")
